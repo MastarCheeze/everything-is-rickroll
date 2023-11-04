@@ -1,0 +1,35 @@
+{
+    "manifest_version": 3,
+    "name": "Everything is Rickroll",
+    "version": "1.0",
+    "description": "Every YouTube video you open is a rickroll.",
+    "icons": {
+        "16": "images/icon16.png",
+        "32": "images/icon32.png",
+        "48": "images/icon48.png",
+        "128": "images/icon128.png"
+    },
+    "permissions": [
+        "storage"
+    ],
+    "action": {
+        "default_title": "Click to toggle extension"
+    },
+    "background": {
+        "service_worker": "scripts/background.js"
+    },
+    "content_scripts": [
+        {
+            "js": [
+                "scripts/content.js"
+            ],
+            "matches": [
+                "https://www.youtube.com/*"
+            ]
+        }
+    ],
+    "options_ui": {
+        "page": "scripts/options.html",
+        "open_in_tab": true
+    }
+}
